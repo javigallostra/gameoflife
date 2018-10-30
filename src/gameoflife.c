@@ -9,7 +9,6 @@
 #include <expand_functions.h>
 
 
-
 // Pointers to the memory where the board info is located
 char * board;
 char * newBoard;
@@ -20,7 +19,9 @@ int expandUp;
 int expandDown;
 int expandLeft;
 int expandRight;
+int iteration;
 int figure;
+int valid_fig=0;
 
 
 // Sample program
@@ -43,41 +44,56 @@ int main()
 	printf("Select figure:\n1.R-pentomino\n2.Diehard\n3.Acorn\n");
 	scanf("%d", &figure);
 
-	switch(figure)
+	while(valid_fig==0)
 	{
-		// R-pentomino
-		case(1):
-			printf("Selected the R-pentomino\n");
-			setCell(board, 2, 1, width, height);
-			setCell(board, 3, 1, width, height);
-			setCell(board, 1, 2, width, height);
-			setCell(board, 2, 2, width, height);
-			setCell(board, 2, 3, width, height);
-		break;
-		// Diehard
-		case(2):
-			printf("Selected Diehard\n");
-			setCell(board, 1, 3, width, height);
-			setCell(board, 2, 3, width, height);
-			setCell(board, 7, 2, width, height);      
-			setCell(board, 2, 4, width, height);
-			setCell(board, 6, 4, width, height);
-			setCell(board, 7, 4, width, height);
-			setCell(board, 8, 4, width, height);
-		break;
-		// Acorn
-		case(3):
-			printf("Selected Acorn\n");
-			setCell(board, 48, 49, width, height);
-			setCell(board, 50, 50, width, height);
-			setCell(board, 47, 51, width, height);
-			setCell(board, 48, 51, width, height);
-			setCell(board, 51, 51, width, height);
-			setCell(board, 52, 51, width, height);
-			setCell(board, 53, 51, width, height);
-		break;
+		switch(figure)
+		{
+			// R-pentomino
+			case(1):
+				printf("Selected the R-pentomino\n");
+				setCell(board, 2, 1, width, height);
+				setCell(board, 3, 1, width, height);
+				setCell(board, 1, 2, width, height);
+				setCell(board, 2, 2, width, height);
+				setCell(board, 2, 3, width, height);
+				valid_fig=1;
+			break;
+			// Diehard
+			case(2):
+				printf("Selected Diehard\n");
+				setCell(board, 1, 3, width, height);
+				setCell(board, 2, 3, width, height);
+				setCell(board, 7, 2, width, height);      
+				setCell(board, 2, 4, width, height);
+				setCell(board, 6, 4, width, height);
+				setCell(board, 7, 4, width, height);
+				setCell(board, 8, 4, width, height);
+				valid_fig=1;
+			break;
+			// Acorn
+			case(3):
+				printf("Selected Acorn\n");
+				setCell(board, 1, 4, width, height);
+				setCell(board, 2, 4, width, height);
+				setCell(board, 2, 2, width, height);
+				setCell(board, 4, 3, width, height);
+				setCell(board, 5, 4, width, height);
+				setCell(board, 6, 4, width, height);
+				setCell(board, 7, 4, width, height);
+				valid_fig=1;
+			break;
+			//Non valid figure
+			default:
+				printf("Sorry, not a valid option.\n");
+				printf("Select figure:\n1.R-pentomino\n2.Diehard\n3.Acorn\n");
+				scanf("%d", &figure);
+			break;
+		}
 	}
 	
+	printf("---Start game of life---\n");
+	sleep(1);
+
 	// Initialize NCURSES
 	WINDOW *wui = init();
 
@@ -120,7 +136,12 @@ int main()
 		usleep(125000);
     		refreshU(board, width, height);
 		draw_ui(wui,i);
+		iteration=i;
 	}
+
+	// 5 - End ncurses
+	endwin();
+	printf("---Game of life ended at iteration %d---\n",iteration);
 	
 	return 0;
 }
