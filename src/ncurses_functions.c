@@ -1,12 +1,18 @@
 
+/**
+  ******************************************************************************
+  * @file    gameoflife/src/ncurses_functions.c
+  * @author  coder
+  * @date    29-October-2018
+  * @brief   This file contains the functions related with the ncurses library.
+  ******************************************************************************
+**/
 #include <ncurses.h>
 #include <cell_functions.h>
 
+// This function initialises the ncurses stream.
 WINDOW *init(void)
 {
-	/* This function initialises the ncurses stream.
-	*/
-
 	int bg = COLOR_BLACK;
 
 	/* Init ncurses */
@@ -39,11 +45,9 @@ WINDOW *init(void)
 }
 
 
+// This function draws the ui using ncurses.
 void draw_ui(WINDOW *wui, int it, int h)
 {
-	/* This function draws the ui using ncurses.
-	*/
-
 	// Clean win
 
 	wrefresh(wui);
@@ -61,15 +65,11 @@ void draw_ui(WINDOW *wui, int it, int h)
 	wattroff(wui, COLOR_PAIR(0));
 
 	wrefresh(wui);
-
-	return;
 }
 
+// This function draws the board using ncurses.
 void refreshU(char *b, int w, int h)
 {
-	/* This function draws the board using ncurses.
-	*/
-
 	for(int j = 0; j < h; j++)
 	{
 		for(int i = 0; i < w; i++)
@@ -85,6 +85,4 @@ void refreshU(char *b, int w, int h)
 	}
 
 	refresh();
-
-	return;
 }

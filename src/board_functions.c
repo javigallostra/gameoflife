@@ -1,4 +1,12 @@
 
+/**
+  ******************************************************************************
+  * @file    gameoflife/src/board_function.c
+  * @author  coder
+  * @date    29-October-2018
+  * @brief   This file contains the functions concerning game of life rules.
+  ******************************************************************************
+**/
 #include <cell_functions.h>
 
 int countNeighbors(char * b, int i, int j, int w, int h)

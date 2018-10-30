@@ -1,4 +1,13 @@
 
+/**
+  ******************************************************************************
+  * @file    gameoflife/src/cell_functions.c
+  * @author  coder
+  * @date    29-October-2018
+  * @brief   This file contains the functions to set or check values of cells.
+  ******************************************************************************
+**/
+
 // Set the value of a cell (i, j) -> set it to 1
 void setCell (char * b, int i, int j, int w, int h)
 {
