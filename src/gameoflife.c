@@ -20,15 +20,12 @@ int expandUp;
 int expandDown;
 int expandLeft;
 int expandRight;
-
+int figure;
 
 
 // Sample program
 int main()
 {
-
-	// Initialize NCURSES
-	WINDOW *wui = init();
 	// Board size
 	// (width must be divisible by 8 as we use char->1 byte->8 bits)
 	int width = 16;
@@ -43,31 +40,47 @@ int main()
 	newBoard = (char *) calloc(height, width/8);
 
 	// 2 - Select figure
+	printf("Select figure:\n1.R-pentomino\n2.Diehard\n3.Acorn\n");
+	scanf("%d", &figure);
 
-	setCell(board, 2, 1, width, height);
-	setCell(board, 3, 1, width, height);
-	setCell(board, 1, 2, width, height);
-	setCell(board, 2, 2, width, height);
-	setCell(board, 2, 3, width, height);
-
-	// Diehard
-	/*setCell(board, 1,3,width, height);
-	setCell(board, 2,3,width, height);
-	setCell(board, 7,2,width, height);      
-	setCell(board, 2,4,width, height);
-	setCell(board, 6,4,width, height);
-	setCell(board, 7,4,width, height);
-	setCell(board, 8,4,width, height);*/
-
-	// Acorn
-	/*setCell(board, 48,49);
-	setCell(board, 50,50);
-	setCell(board, 47,51);
-	setCell(board, 48,51);
-	setCell(board, 51,51);
-	setCell(board, 52,51);
-	setCell(board, 53,51);//*/
+	switch(figure)
+	{
+		// R-pentomino
+		case(1):
+			printf("Selected the R-pentomino\n");
+			setCell(board, 2, 1, width, height);
+			setCell(board, 3, 1, width, height);
+			setCell(board, 1, 2, width, height);
+			setCell(board, 2, 2, width, height);
+			setCell(board, 2, 3, width, height);
+		break;
+		// Diehard
+		case(2):
+			printf("Selected Diehard\n");
+			setCell(board, 1, 3, width, height);
+			setCell(board, 2, 3, width, height);
+			setCell(board, 7, 2, width, height);      
+			setCell(board, 2, 4, width, height);
+			setCell(board, 6, 4, width, height);
+			setCell(board, 7, 4, width, height);
+			setCell(board, 8, 4, width, height);
+		break;
+		// Acorn
+		case(3):
+			printf("Selected Acorn\n");
+			setCell(board, 48, 49, width, height);
+			setCell(board, 50, 50, width, height);
+			setCell(board, 47, 51, width, height);
+			setCell(board, 48, 51, width, height);
+			setCell(board, 51, 51, width, height);
+			setCell(board, 52, 51, width, height);
+			setCell(board, 53, 51, width, height);
+		break;
+	}
 	
+	// Initialize NCURSES
+	WINDOW *wui = init();
+
 	// 3 - Print first board
 	refreshU(board, width, height);
 	draw_ui(wui,0);
@@ -86,6 +99,7 @@ int main()
 		newBoard = tempPointer;
 		memset(newBoard, 0, height*width/8);
 
+		// 4.4 - Expand board edge if necessary
 		int grow = checkBoardExpansion(board, width, height, &expandUp, &expandDown, &expandLeft, &expandRight);
 		if (grow)
 		{
@@ -100,7 +114,6 @@ int main()
 			free(newBoard);
 			newBoard = (char *) calloc(height, width/8);
 		}
-		
 		
 		// 4.5 - print the updated board and the iteration #
 		//       and sleep for 0.125 seconds
