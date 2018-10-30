@@ -1,30 +1,42 @@
+
+/**
+  ******************************************************************************
+  * @file    gameoflife/src/gameoflife.c
+  * @author  coder
+  * @date    29-October-2018
+  * @brief   This file corresponds to the main file of the game of life project.
+  ******************************************************************************
+**/
+
 #include <stdio.h>
 #include <stdlib.h> // for calloc (allocate and set to 0)
 #include <unistd.h> // for usleep (microseconds)
 #include <string.h> // for memset
 
-#include <cell_functions.h>
-#include <board_functions.h>
-#include <ncurses_functions.h>
-#include <expand_functions.h>
+#include "cell_functions.h"
+#include "board_functions.h"
+#include "ncurses_functions.h"
+#include "expand_functions.h"
 
 
 // Pointers to the memory where the board info is located
 char * board;
 char * newBoard;
 char * tempPointer;
+// Board size parameters
 int width;
 int height;
+// Board edge expansion parameters
 int expandUp;
 int expandDown;
 int expandLeft;
 int expandRight;
+// Simulation figure parameters
 int iteration;
 int figure;
 int valid_fig=0;
 
-
-// Sample program
+// Main function
 int main()
 {
 	// Board size
@@ -131,8 +143,7 @@ int main()
 			newBoard = (char *) calloc(height, width/8);
 		}
 		
-		// 4.5 - print the updated board and the iteration #
-		//       and sleep for 0.125 seconds
+		// 4.5 - print the updated board and the iteration # and sleep for 0.125 seconds
 		usleep(125000);
     		refreshU(board, width, height);
 		draw_ui(wui,i);

@@ -1,4 +1,14 @@
 
+/**
+  ******************************************************************************
+  * @file    gameoflife/src/expand_functions.c
+  * @author  coder
+  * @date    29-October-2018
+  * @brief   This file contains the functions dedicated to the expansion
+  *	     of the board.
+  ******************************************************************************
+**/
+
 #include <cell_functions.h>
 
 int checkBoardExpansion(char * b, int w, int h, int * expandUp, int * expandDown, int * expandLeft, int * expandRight)
@@ -98,6 +108,4 @@ void BoardExpansion(char * b, char * nb, int w, int h, int expandUp, int expandD
 			}
 		}
 	}
-
-	return;			
 }
