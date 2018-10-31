@@ -29,7 +29,7 @@ int checkBoardExpansion(char * b, int w, int h, int * expandUp, int * expandDown
 	*expandRight = 0;
 	
 	int maxh = 64;
-	int maxw = 64;
+	int maxw = 128;
 
 	// Check expandUp (i = [0, width], j = 0)
 	for (int i = 0; i < w; i++)

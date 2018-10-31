@@ -44,31 +44,8 @@ WINDOW *init(void)
 	return wui;
 }
 
-
-// This function draws the ui using ncurses.
-void draw_ui(WINDOW *wui, int it, int h)
-{
-	// Clean win
-
-	wrefresh(wui);
-
-	werase(wui);
-
-	wattron(wui, COLOR_PAIR(0));
-
-	// General info
-
-	wmove(wui, h+1, 0);
-	
-	wprintw(wui, "Iteration: %d\n", it);
-
-	wattroff(wui, COLOR_PAIR(0));
-
-	wrefresh(wui);
-}
-
 // This function draws the board using ncurses.
-void refreshU(char *b, int w, int h)
+void refreshU(char *b, int w, int h, int it)
 {
 	for(int j = 0; j < h; j++)
 	{
@@ -83,6 +60,10 @@ void refreshU(char *b, int w, int h)
 			}
 		}
 	}
+
+	attron(COLOR_PAIR(0));
+	mvprintw(h+1, 0, "Iteration: %d\n", it);
+	attroff(COLOR_PAIR(0));
 
 	refresh();
 }
