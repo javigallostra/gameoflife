@@ -2,10 +2,22 @@
 /**
   ******************************************************************************
   * @file    gameoflife/src/gameoflife.c
-  * @author  coder
+  * @author  coder 2
   * @date    29-October-2018
   * @brief   This file corresponds to the main file of the game of life project.
   ******************************************************************************
+
+  *****************************************************************************
+  * GAME OF LIFE
+  * Master's Degree in Automatic Control and Robotics
+  * Embedded and Real Time Systems
+  *
+  *
+  * Instructions of usage at README file 
+  * Identification of code authors at authors.txt file
+  * Team-work strategy, code implementation information  and memory leaks
+  * analysis at Code profile report.pdf 
+  *****************************************************************************
 **/
 
 #include <stdio.h>
@@ -31,7 +43,7 @@ int expandUp;
 int expandDown;
 int expandLeft;
 int expandRight;
-// Simulation figure parameters
+// Simulation parameters
 int iteration;
 int figure;
 int speed;
@@ -143,7 +155,7 @@ int main()
 	}
 	
 	printf("\n--- Start game of life ---\n");
-	printf("---Press Escape to stop---\n");
+	printf("--- Press Delete key to stop ---\n");
 	sleep(2);
 
 	// Initialize NCURSES
@@ -198,7 +210,7 @@ int main()
 
 	// 5 - End ncurses
 	endwin();
-	printf("---Game of life ended at iteration %d---\n",iteration);
+	printf("--- Game of life ended at iteration %d ---\n",iteration);
 
 	// 6 - Free memory
 	free(board);

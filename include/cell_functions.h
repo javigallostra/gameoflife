@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    gameoflife/include/cell_functions.h 
-  * @author  coder
+  * @author  coder 1
   * @date    29-October-2018
   * @brief   Header file for src/cells_functions.c file. Contains the 
   * 	     declaration of the functions to set or check values of cells.

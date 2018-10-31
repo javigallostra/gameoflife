@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    gameoflife/src/board_function.c
-  * @author  coder
+  * @author  coder 1
   * @date    29-October-2018
   * @brief   This file contains the functions concerning game of life rules.
   ******************************************************************************

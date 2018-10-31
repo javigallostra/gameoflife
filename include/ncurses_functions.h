@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    gameoflife/include/ncurses_functions.h 
-  * @author  coder
+  * @author  coder 3
   * @date    29-October-2018
   * @brief   Header file for src/expand_functions.c file. Contains the 
   * 	     declaration of the functions related to the ncurses.

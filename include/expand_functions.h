@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    gameoflife/include/expand_functions.h 
-  * @author  coder
+  * @author  coder 4
   * @date    29-October-2018
   * @brief   Header file for src/expand_functions.c file. Contains the 
   * 	     declaration of the functions to dedicated to expand the board.

@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    gameoflife/src/ncurses_functions.c
-  * @author  coder
+  * @author  coder 3
   * @date    29-October-2018
   * @brief   This file contains the functions related with the ncurses library.
   ******************************************************************************

@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    gameoflife/src/cell_functions.c
-  * @author  coder
+  * @author  coder 1
   * @date    29-October-2018
   * @brief   This file contains the functions to set or check values of cells.
   ******************************************************************************

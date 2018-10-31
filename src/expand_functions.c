@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    gameoflife/src/expand_functions.c
-  * @author  coder
+  * @author  coder 4
   * @date    29-October-2018
   * @brief   This file contains the functions dedicated to the expansion
   *	     of the board.

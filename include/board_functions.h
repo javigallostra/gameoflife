@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    gameoflife/include/board_functions.h 
-  * @author  coder
+  * @author  coder 1
   * @date    27-October-2018
   * @brief   This file is the header file for src/board_functions.c file.
 	     Contains the declaration of the functions concerning game of life rules.
