@@ -1,0 +1,6 @@
+Authors identification
+
+* Javier Gallostra      - Coder 1
+* Irene Garcia Camacho  - Coder 2
+* David Reixach         - Coder 3
+* Olmo Vigil            - Coder 4
