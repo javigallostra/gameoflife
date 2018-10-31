@@ -62,7 +62,7 @@ In the root of the project, execute:
 
 it will ask to select the starting simulation figure. The options are:
 
-1. The T-pentomino
+1. The R-pentomino
 2. Diehard
 3. Acorn
 
