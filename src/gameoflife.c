@@ -199,5 +199,9 @@ int main()
 	// 5 - End ncurses
 	endwin();
 	printf("---Game of life ended at iteration %d---\n",iteration);
+
+	// 6 - Free memory
+	free(board);
+	free(newBoard);
 	return 0;
 }
