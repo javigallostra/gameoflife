@@ -20,13 +20,8 @@
 WINDOW *init(void);
 
 /**
- * \brief Draws the ui using ncurses.
- */
-void draw_ui(WINDOW *,int);
-
-/**
  * \brief Draws the board using ncurses.
  */
-void refreshU(char *, int, int);
+void refreshU(char *, int, int, int);
 
 #endif /* NCURSES_FUNCS */

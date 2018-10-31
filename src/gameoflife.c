@@ -34,7 +34,11 @@ int expandRight;
 // Simulation figure parameters
 int iteration;
 int figure;
+int speed;
 int valid_fig=0;
+int valid_spd=0;
+int key_press=0;
+int wait_ms=0;
 
 // Main function
 int main()
@@ -52,7 +56,7 @@ int main()
 	board = (char *) calloc(height, width/8);
 	newBoard = (char *) calloc(height, width/8);
 
-	// 2 - Select figure
+	// 2.1 - Select figure
 	printf("Select figure:\n1.R-pentomino\n2.Diehard\n3.Acorn\n");
 	scanf("%d", &figure);
 
@@ -102,22 +106,58 @@ int main()
 			break;
 		}
 	}
+
+	// 2.2 - Select speed
+	printf("\nSelect speed:\n1.Very fast\n2.Fast\n3.Slow\n");
+	scanf("%d", &speed);
+
+	while(valid_spd==0)
+	{
+		switch(speed)
+		{
+			// R-pentomino
+			case(1):
+				printf("Selected Very Fast\n");
+				wait_ms = 62500;
+				valid_spd=1;
+			break;
+			// Diehard
+			case(2):
+				printf("Selected Fast\n");
+				wait_ms = 125000;
+				valid_spd=1;
+			break;
+			// Acorn
+			case(3):
+				printf("Selected Slow\n");
+				wait_ms = 250000;
+				valid_spd=1;
+			break;
+			//Non valid figure
+			default:
+				printf("Sorry, not a valid option.\n");
+				printf("Select speed:\n1.Very fast\n2.Fast\n3.Slow\n");
+				scanf("%d", &speed);
+			break;
+		}
+	}
 	
-	printf("---Start game of life---\n");
-	sleep(1);
+	printf("\n--- Start game of life ---\n");
+	printf("---Press Escape to stop---\n");
+	sleep(2);
 
 	// Initialize NCURSES
 	WINDOW *wui = init();
 
 	// 3 - Print first board
-	refreshU(board, width, height);
-	draw_ui(wui,0);
+	refreshU(board, width, height, 0);
+	sleep(1);
 
 	// 4 - Perform iterations
-	for (int i = 0; i < 5250; i++)
+	for (int i = 1; i < 5250; i++)
 	{
-		// 4.1 - sleep for 0.125 seconds
-		usleep(125000);
+		// 4.1 - sleep
+		usleep(wait_ms);
 		// 4.2 - update the board and store it in newBoard
 		boardIteration(board, newBoard, width, height);
 
@@ -143,16 +183,25 @@ int main()
 			newBoard = (char *) calloc(height, width/8);
 		}
 		
-		// 4.5 - print the updated board and the iteration # and sleep for 0.125 seconds
-		usleep(125000);
-    		refreshU(board, width, height);
-		draw_ui(wui,i);
+		// 4.5 - print the updated board and the iteration #
+    		refreshU(board, width, height, iteration);
 		iteration=i;
+		
+		// 4.6 - if the escape key is pressed, stop the program
+		if ((key_press = getch()) == 263)
+		{  
+			nodelay(stdscr, false);
+			clear();
+			break;
+		}
 	}
 
 	// 5 - End ncurses
 	endwin();
 	printf("---Game of life ended at iteration %d---\n",iteration);
-	
+
+	// 6 - Free memory
+	free(board);
+	free(newBoard);
 	return 0;
 }
