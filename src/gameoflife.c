@@ -147,7 +147,7 @@ int main()
 	sleep(2);
 
 	// Initialize NCURSES
-	WINDOW *wui = init();
+	init();
 
 	// 3 - Print first board
 	refreshU(board, width, height, 0);
