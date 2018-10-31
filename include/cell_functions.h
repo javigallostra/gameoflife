@@ -36,6 +36,8 @@ void clearCell(char *, int, int, int, int);
  * This function returns the value of a cell (bit)
  * in the board "b", which has width "w" and height "h".
  * The bit checked is at position (i,j) in the board.
+ *
+ * \return returns the cell value.
  **/
 int checkCell(char *, int, int, int, int);
 

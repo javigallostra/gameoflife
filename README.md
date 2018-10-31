@@ -22,7 +22,7 @@ reproduction.
 
 ## Folder structure
 - *README.txt* : this file.
-- *Makefile* :Compilation file.
+- *Makefile* : Compilation file.
 - *src/* : contains the source files.
     - **gameoflife.c** : Main of the project. Executes 5250 iterations.
     - *board_functions.c* : Contains the functions concerning game of life rules.

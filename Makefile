@@ -13,7 +13,7 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 gameoflife: $(OBJ)
-	$(CC) -o $@ $^  $(LDFLAGS) $(CFLAGS)
+	$(CC) -o $@ $^  $(LDFLAGS) $(CFLAGS) -pg
 
 clean:
 	rm -f $(OBJ) gameoflife
